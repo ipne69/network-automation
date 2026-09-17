@@ -1,8 +1,18 @@
 ---
 version: 3
 
+images:
+  base_image:
+    name: quay.io/ansible/awx-ee:24.6.1
+
 dependencies:
   galaxy:
     collections:
+      - name: ansible.netcommon
+        version: "7.1.0"
+
+      - name: ansible.utils
+        version: "5.1.2"
+
       - name: fortinet.fortios
         version: "2.3.4"

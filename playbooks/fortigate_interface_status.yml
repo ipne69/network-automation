@@ -16,7 +16,7 @@
     - name: Get FortiGate interface information
       fortinet.fortios.fortios_monitor_fact:
         vdom: "root"
-        selector: "system_interface_select"
+        selector: "system_interface"
       register: interface_info
 
     - name: Display selected interface information
