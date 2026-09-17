@@ -1,0 +1,14 @@
+---
+- name: Test FortiGate REST API credential
+  hosts: fortigates
+  gather_facts: false
+
+  tasks:
+
+    - name: Verify API token was injected
+      ansible.builtin.assert:
+        that:
+          - fortigate_api_token is defined
+          - fortigate_api_token | length > 0
+        fail_msg: "FortiGate API token was not injected"
+        success_msg: "FortiGate API token was successfully injected"

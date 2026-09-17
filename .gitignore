@@ -1,0 +1,8 @@
+*.retry
+*.log
+vault.yml
+secrets.yml
+.env
+.venv/
+ansible-venv/
+__pycache__/

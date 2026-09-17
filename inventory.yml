@@ -11,4 +11,4 @@ all:
         ansible_network_os: fortinet.fortios.fortios
         ansible_httpapi_use_ssl: true
         ansible_httpapi_validate_certs: false
-        ansible_httpapi_port: 8443
+        ansible_httpapi_port: 8442
