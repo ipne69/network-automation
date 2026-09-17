@@ -1,10 +1,15 @@
 ---
-- name: FortiGate Interface Status
+- name: Check Multiple FortiGate Interface Status
   hosts: fortigates
   gather_facts: false
 
   collections:
     - fortinet.fortios
+
+  vars:
+    target_interfaces:
+      - port11
+      - port12
 
   tasks:
 
@@ -14,6 +19,8 @@
         selector: "system_interface_select"
       register: interface_info
 
-    - name: Display interface information
+    - name: Display selected interface information
       ansible.builtin.debug:
-        var: interface_info
+        msg: "{{ item }}"
+      loop: "{{ interface_info.meta.results }}"
+      when: item.name in target_interfaces
