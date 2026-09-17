@@ -6,21 +6,15 @@
   collections:
     - fortinet.fortios
 
-  vars:
-    target_interfaces:
-      - port11
-      - port12
+ tasks:
 
-  tasks:
-
-    - name: Get FortiGate interface information
+    - name: Get FortiGate interface status
       fortinet.fortios.fortios_monitor_fact:
-        vdom: "root"
-        selector: "system_interface"
-      register: interface_info
+        vdom: root
+        selector: system_interface
+      register: fortigate_interfaces
 
-    - name: Display selected interface information
+    - name: Display interface status
       ansible.builtin.debug:
-        msg: "{{ item }}"
-      loop: "{{ interface_info.meta.results }}"
-      when: item.name in target_interfaces
+        msg: {{ item.name }} : {{ item.link }}
+      loop: {{ fortigate_interfaces.meta.results }}
