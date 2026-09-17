@@ -1,4 +1,4 @@
 ---
 collections:
   - name: fortinet.fortios
-   version: "2.3.4"
+    version: "2.3.4"
