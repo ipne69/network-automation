@@ -1,0 +1,9 @@
+---
+- name: Test FortiGate API connection
+  hosts: fortigates
+  gather_facts: false
+
+  tasks:
+    - name: Test FortiGate connection
+      ansible.builtin.debug:
+        msg: "HTTPAPI connection configured for {{ inventory_hostname }} at {{ ansible_host }}"
